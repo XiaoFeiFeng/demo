@@ -1,0 +1,44 @@
+<style>
+    .hls-label {
+        display: inline;
+        padding: .5em 1em;
+        font-size: 75%;
+        font-weight: bold;
+        line-height: 1;
+        color: #ffffff;;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: baseline;
+        border-radius: .25em;
+        background-color: gray;
+        position: relative;
+    }
+
+    .hls-label .close {
+        float: right;
+        font-size: 150%;
+        font-weight: bold;
+        line-height: 1;
+        color: #ffffff;;
+        text-shadow: 0 1px 0 #fff;
+        opacity: 0.2;
+    }
+
+    .hls-label .close:hover,
+    .hls-label .close:focus {
+        color: darkgray;
+        text-decoration: none;
+        cursor: pointer;
+        opacity: .5;
+    }
+</style>
+<div class="row" ng-controller="testLabelCtrl">
+
+    <div class="hls-label">
+        <span>测试标签</span>
+        <button type="button" class="close">
+            <span>&times;</span>
+            <span class="sr-only">Close</span>
+        </button>
+    </div>
+</div>
