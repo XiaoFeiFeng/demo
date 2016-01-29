@@ -7,6 +7,7 @@ require.config({
     // alias libraries paths
     paths: {
         'jquery': '//cdn.bootcss.com/jquery/2.2.0/jquery.min',
+        'easing': '//cdn.bootcss.com/jquery-easing/1.3/jquery.easing.min',
         'angular': '//cdn.bootcss.com/angular.js/1.4.9/angular.min',
         'uiRouter': '//cdn.bootcss.com/angular-ui-router/0.2.16/angular-ui-router.min',
         'blockUI': '//cdn.bootcss.com/angular-block-ui/0.2.2/angular-block-ui.min',

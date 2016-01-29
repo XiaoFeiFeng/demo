@@ -6,7 +6,7 @@
  */
 
 'use strict'
-define([], function () {
+define(['easing', 'css!../../style/style.css'], function () {
     angular.module('homeIndexModule', [])
         .controller('homeIndexCtrl', ['$scope', function ($scope) {
 
@@ -17,5 +17,7 @@ define([], function () {
                     $scope.images.push("images/p" + i + ".jpg");
                 }
             }
+            $scope.init();
+
         }]);
 })
