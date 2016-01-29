@@ -58,8 +58,14 @@ class merchant extends Controller
     {
         $path = str_replace('admin/api/', '', CFG_PATH_ROOT) . 'images/merchants/' . date('ymd', time()) . "/";
         $httpPath = 'images/merchants/' . date('ymd', time()) . "/";
+        $thumbnail_path = $path . "thumbnail/";
+
         require(CFG_PATH_ROOT . 'lib/util/UploadFile.class.php');
+        require(CFG_PATH_ROOT . 'lib/util/Image.class.php');
+
         $upload = new UploadFile();
+        $image = new Image();
+
         try {
             $filePaths = array();
             if (!is_array($_FILES['upload']['error'])) {
@@ -71,7 +77,12 @@ class merchant extends Controller
                     $file["size"] = $_FILES['upload']['size'][$k];
                     $file["tmp_name"] = $_FILES['upload']['tmp_name'][$k];
                     $file["type"] = $_FILES['upload']['type'][$k];
-                    $filePaths[] = $httpPath . $upload->upload($file, $path, 1);
+
+                    $file_path = $upload->upload($file, $path, 1);
+
+                    //$result = $image->scale($path . $file_path, $thumbnail_path . $file_path, 960, 960);
+
+                    $filePaths[] = $httpPath . $file_path;
                 }
             }
 
