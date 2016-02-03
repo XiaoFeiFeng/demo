@@ -1,0 +1,53 @@
+.pt-padding-top {
+    padding: 15px 0 !important;
+}
+
+.pt-botton {
+    margin: 15px;
+}
+
+.pt-copyright {
+    height: 40px;
+    line-height: 40px;
+    font-family: arial;
+    text-align: center;
+}
+
+.pt-botton a {
+    font-size: 90%;
+    color: #555;
+}
+
+.pt-botton a:hover,
+.pt-botton a:focus {
+    font-size: 90%;
+    color: #0c0c0c;
+}
+
+.pt-botton ul li {
+    font-size: 90%;
+}
+
+.pt-img-scale {
+    overflow: hidden;
+    padding: 5px;
+}
+
+.pt-img-scale div {
+    overflow: hidden;
+}
+
+.pt-img-scale img {
+    transition: All 0.4s ease-in-out;
+    -webkit-transition: All 0.4s ease-in-out;
+    -moz-transition: All 0.4s ease-in-out;
+    -o-transition: All 0.4s ease-in-out;
+}
+
+.pt-img-scale img:hover {
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+}

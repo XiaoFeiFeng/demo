@@ -1,0 +1,126 @@
+/*******************nsg 导航********************/
+.navbar-pt {
+    font-family: "Microsoft YaHei";
+    background-color: #1E1E24;
+    border-radius: 0px !important;
+}
+
+.navbar {
+    margin: 0px !important;
+}
+
+.navbar-pt .navbar-brand {
+    color: #FFFFFF;
+}
+
+.navbar-pt .navbar-brand:hover,
+.navbar-pt .navbar-brand:focus {
+    color: #FFFFFF;
+    background-color: transparent;
+}
+
+.navbar-pt .navbar-text {
+    color: #FFFFFF;
+}
+
+.navbar-pt .navbar-nav > li > a {
+    font-family: SimHei;
+    font-size: 110%;
+    color: #FFFFFF;
+    font-weight: 300;
+}
+
+.navbar-pt .navbar-nav > li > a:hover,
+.navbar-pt .navbar-nav > li > a:focus {
+    color: #FFB500;
+    background-color: transparent;
+}
+
+.navbar-pt .navbar-nav > .active > a,
+.navbar-pt .navbar-nav > .active > a:hover,
+.navbar-pt .navbar-nav > .active > a:focus {
+    color: #FFB500;
+    background-color: transparent;
+}
+
+.navbar-pt .navbar-nav > .disabled > a,
+.navbar-pt .navbar-nav > .disabled > a:hover,
+.navbar-pt .navbar-nav > .disabled > a:focus {
+    color: #ccc;
+    background-color: transparent;
+}
+
+.navbar-pt .navbar-toggle {
+    border-color: #ddd;
+}
+
+.navbar-pt .navbar-toggle:hover,
+.navbar-pt .navbar-toggle:focus {
+    background-color: #ddd;
+}
+
+.navbar-pt .navbar-toggle .icon-bar {
+    background-color: #888;
+}
+
+.navbar-pt .navbar-collapse,
+.navbar-pt .navbar-form {
+    border-color: #e7e7e7;
+}
+
+.navbar-pt .navbar-nav > .open > a,
+.navbar-pt .navbar-nav > .open > a:hover,
+.navbar-pt .navbar-nav > .open > a:focus {
+    color: #1E1E24;
+    background-color: #FFB500;
+    font-family: SimHei;
+    font-size: 110%;
+    font-weight: 300;
+}
+
+.navbar-pt .navbar-nav .open .dropdown-menu > li > a {
+    color: #1E1E24;
+}
+
+.navbar-pt .navbar-nav .open .dropdown-menu > li > a:hover,
+.navbar-pt .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #FFB500;
+    background-color: transparent;
+}
+
+.navbar-pt .navbar-link {
+    font-size: 90%;
+    color: #FFFFFF;
+}
+
+.navbar-pt .navbar-link:hover {
+    color: #FFB500;
+}
+
+.navbar-pt .btn-link {
+    color: #777;
+}
+
+/*** Button ***/
+.btn-link-pt {
+    font-weight: normal;
+    color: #000000;
+    border: 0px;
+    border-radius: 0;
+    background-color: transparent !important;
+}
+
+.btn-link-pt:hover,
+.btn-link-pt:focus {
+    color: #FFFFFF !important;
+    text-decoration: underline;
+    background-color: #FFB500 !important;
+}
+
+.btn-link-pt[disabled]:hover,
+fieldset[disabled] .btn-link-pt:hover,
+.btn-link-pt[disabled]:focus,
+fieldset[disabled] .btn-link-pt:focus {
+    color: #777;
+    text-decoration: none;
+}

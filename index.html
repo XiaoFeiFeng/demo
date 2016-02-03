@@ -11,9 +11,123 @@
 
 </head>
 <body ng-controller="indexCtrl">
-<div class="container">
-    <div class="clearfix" ui-view></div>
-    <br/>
+<div class="container-fluid">
+    <!--nav-->
+    <div class="row clearfix navbar-pt">
+        <div class="container">
+            <nav class="navbar" role="navigation">
+                <div class="col-md-2 navbar-header">
+                    <a class="navbar-brand" href="#">逆时光</a>
+                </div>
+                <ul class="col-md-5 nav navbar-nav">
+                    <li>
+                        <a href="#">首页</a>
+                    </li>
+                    <li>
+                        <a href="#">作品</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">活动<strong
+                                class="caret"></strong></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">收费活动</a>
+                            </li>
+                            <li>
+                                <a href="#">免费活动</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">摄影师</a>
+                    </li>
+                    <li>
+                        <a href="#">模特</a>
+                    </li>
+                    <li>
+                        <a href="#">关于我们</a>
+                    </li>
+                </ul>
+                <form class="col-md-3    navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control input-md" placeholder="请输入关键词"/>
+                             <span class="input-group-btn">
+                                 <button type="button" class="btn btn-default btn-md" ng-click="">
+                                     <span class="glyphicon glyphicon-search text-info" aria-hidden="true"></span>
+                                     <span> 搜索</span>
+                                 </button>
+                            </span>
+                    </div>
+                </form>
+                <div class="col-md-2 navbar-text navbar-right text-right">
+                    <a href="#" class="navbar-link">登录</a>
+                    <span>&nbsp;|&nbsp;</span>
+                    <a href="#" class="navbar-link">注册</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- banner-->
+    <div class="row clearfix">
+
+    </div>
+    <!--body-->
+    <div class="row clearfix" ui-view></div>
+    <!--footer-->
+    <div class="container">
+        <div class="row pt-botton">
+            <div class=" col-md-8">
+                <dl class="col-md-2">
+                    <dt><a href="#">寄件查询</a></dt>
+                    <dd><a href="#">上门收件</a></dd>
+                    <dd><a href="#">货物查询</a></dd>
+                    <dd><a href="#">运费查询</a></dd>
+                    <dd><a href="#">网点查询</a></dd>
+                </dl>
+                <dl class="col-md-2">
+                    <dt><a href="#">会员体系</a></dt>
+                    <dd><a href="#">个人会员</a></dd>
+                    <dd><a href="#">会员积分</a></dd>
+                    <dd><a href="#">会员用途 </a></dd>
+                </dl>
+                <dl class="col-md-2">
+                    <dt><a href="#">信息中心</a></dt>
+                    <dd><a href="#">新闻资讯</a></dd>
+                    <dd><a href="#">易联公告</a></dd>
+                </dl>
+                <dl class="col-md-2">
+                    <dt><a href="#">帮助中心</a></dt>
+                    <dd><a href="#">常见问题</a></dd>
+                    <dd><a href="#">意见反馈</a></dd>
+                </dl>
+                <dl class="col-md-2">
+                    <dt><a href="#">关于易联</a></dt>
+                    <dd><a href="#">了解易联</a></dd>
+                    <dd><a href="#">加入易联</a></dd>
+                    <dd><a href="#">联系我们</a></dd>
+                </dl>
+                <dl class="col-md-2">
+                    <dt class="text-center"><a href="#">关注我们</a></dt>
+                    <dt><img src="images/weixin.jpg" style="width: 120px;height: 120px"
+                             class="two-dimensional"></dt>
+                </dl>
+            </div>
+            <div class="col-md-4">
+
+                <dt><a href="#"><img src="images/contatus.png"></a></dt>
+                <dd>服务热线</dd>
+                <dd><h4 class="font-orange">0755-36601415</h4></dd>
+                <dd>周一到周五9：00-18：00</dd>
+
+            </div>
+        </div>
+        <div class="row pt-copyright">
+            <small>
+                Copyright &copy;2011-2015 &emsp;www.e156.com 易联速递-国际物流商城 &emsp;©粤ICP备13010532号-1 CPowerSoft
+                Inc.版权所有.
+            </small>
+        </div>
+    </div>
 </div>
 </body>
 </html>

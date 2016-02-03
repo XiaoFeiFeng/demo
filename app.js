@@ -56,8 +56,9 @@ require.config({
     }
 });
 
-define(['angular', 'angularAMD', 'uiRouter', 'blockUI', 'bootstrap', 'ui-bootstrap-tpls', 'angular-sanitize', 'fileinput-zh', 'hls-util']
-    , function (angular, angularAMD, blockUI) {
+define(['angular', 'angularAMD', 'uiRouter', 'blockUI', 'bootstrap', 'ui-bootstrap-tpls', 'angular-sanitize', 'fileinput-zh', 'hls-util',
+'css!style/bs-pt.css','css!style/index.css'
+],function (angular, angularAMD, blockUI) {
         // routes
         var registerRoutes = function ($stateProvider, $urlRouterProvider) {
             var jsResolve = {

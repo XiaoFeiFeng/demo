@@ -1,16 +1,41 @@
 <div class="container" ng-controller="homeIndexCtrl">
+    <div class="row pt-padding-top">
+
+        <button type="button" class="btn btn-link-pt">
+            <span> 社区推荐</span>
+        </button>
+        <button type="button" class="btn btn-link-pt">
+            <span> 最新作品</span>
+        </button>
+        <button type="button" class="btn btn-link-pt">
+            <span> 热门精选</span>
+        </button>
+
+    </div>
     <div class="row">
-        <div class="col-md-3" ng-repeat="img in images track by $index">
+        <div class="col-md-3" style="padding: 5px" ng-repeat="img in images track by $index">
             <a href="#" class="b-link-stripe b-animate-go"> <img ng-src="{{img}}" class="img-responsive" alt=""/>
                 <div class="b-wrapper">
                     <h2 class="b-animate b-from-left">
                         <img src="images/p10.jpg" style="width: 100px;height: 100px" class="img-circle" alt=""/> <span>摄影师麦杰</span>
-                        <button>进入影集</button>
+                        <button class="sm">进入影集</button>
                         <label> <i class="heart"> </i>21</label>
                     </h2>
                 </div>
             </a>
         </div>
-        <div class="clearfix"></div>
+        <div class="clearfix text-center">
+            <hls-pagination total-items="totalItems" ng-model="currentPage" class="pagination-sm"
+                            ng-change="pageChange()"></hls-pagination>
+        </div>
+        <div class="col-md-12 text-left">
+            <span> 逆时光作品</span>
+        </div>
+        <div class="col-md-2 pt-img-scale" style="padding: 5px" ng-repeat="img in imageList track by $index">
+            <div>
+                <a href="#"> <img ng-src="{{img}}" class="img-responsive" alt=""/>
+                </a>
+            </div>
+        </div>
     </div>
 </div>
