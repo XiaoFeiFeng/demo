@@ -22,7 +22,7 @@ class logistic extends Controller
     function logisticList()
     {
         $where = array();
-        $result = $this->logistic->lists('logistics', $where, getPageLimit());
+        $result = $this->logistic->find('logistics', $where, getPageLimit());
         echo $this->json->encode($result);
     }
 
@@ -68,7 +68,7 @@ class logistic extends Controller
         if (isset($_GET["id"]) && $_GET["id"] !== 'undefined') {
             $where['channel_logId'] = new MongoId($_GET['id']);
         }
-        $result = $this->logistic->lists('logistics_channels', $where, getPageLimit());
+        $result = $this->logistic->find('logistics_channels', $where, getPageLimit());
         echo $this->json->encode($result);
     }
 

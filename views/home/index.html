@@ -11,6 +11,9 @@
             <span> 热门精选</span>
         </button>
 
+        <a href="#/article/publish" class="btn btn-primary">
+            <span> 发布作品</span>
+        </a>
     </div>
     <div class="row">
         <div class="col-md-3" style="padding: 5px" ng-repeat="img in images track by $index">
@@ -28,7 +31,7 @@
             <hls-pagination total-items="totalItems" ng-model="currentPage" class="pagination-sm"
                             ng-change="pageChange()"></hls-pagination>
         </div>
-        <div class="col-md-12 text-left">
+        <div class="col-md-12 text-left" style="padding: 15px">
             <span> 逆时光作品</span>
         </div>
         <div class="col-md-2 pt-img-scale" style="padding: 5px" ng-repeat="img in imageList track by $index">

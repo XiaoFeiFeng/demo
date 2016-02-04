@@ -12,7 +12,7 @@ class configModel extends Model
      */
     function __construct()
     {
-        parent::__construct("shipping", "mongodb://127.0.0.1:27017"); //定义数据库
+        parent::__construct("shipping"); //定义数据库
     }
 
 }

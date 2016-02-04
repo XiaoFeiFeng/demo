@@ -19,8 +19,8 @@ require.config({
         'angularAMD': 'js/angularAMD/angularAMD.min',
         'datetimepicker': 'js/angular-bootstrap-datetimepicker/src/js/datetimepicker',
 
-        'fileinput': '//cdn.bootcss.com/bootstrap-fileinput/4.3.0/js/fileinput.min',
-        'fileinput-zh': '//cdn.bootcss.com/bootstrap-fileinput/4.3.0/js/fileinput_locale_zh.min',
+        'fileinput': '//cdn.bootcss.com/bootstrap-fileinput/4.1.9/js/fileinput.min',
+        'fileinput-zh': '//cdn.bootcss.com/bootstrap-fileinput/4.1.9/js/fileinput_locale_zh.min',
 
         'hls-core': 'js/hls-core',
         'hls-util': 'js/hls-util',
@@ -42,12 +42,13 @@ require.config({
         'blockUI': ['angular',
             'css!//cdn.bootcss.com/angular-block-ui/0.2.2/angular-block-ui.min.css'],
         'bootstrap': ['jquery',
-            'css!//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css'],
+            'css!//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css',
+            'css!//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css'],
         'datetimepicker': [
             'css!js/angular-bootstrap-datetimepicker/src/css/datetimepicker.css'
         ],
         'fileinput': ['bootstrap',
-            'css!//cdn.bootcss.com/bootstrap-fileinput/4.3.0/css/fileinput.min.css'],
+            'css!//cdn.bootcss.com/bootstrap-fileinput/4.1.9/css/fileinput.min.css'],
         'fileinput-zh': ['fileinput'],
         'hls-ui': ['hls-core',
             'css!js/hls-ui.css'
@@ -57,67 +58,67 @@ require.config({
 });
 
 define(['angular', 'angularAMD', 'uiRouter', 'blockUI', 'bootstrap', 'ui-bootstrap-tpls', 'angular-sanitize', 'fileinput-zh', 'hls-util',
-'css!style/bs-pt.css','css!style/index.css'
-],function (angular, angularAMD, blockUI) {
-        // routes
-        var registerRoutes = function ($stateProvider, $urlRouterProvider) {
-            var jsResolve = {
-                load: ['$q', '$rootScope', '$stateParams',
-                    function ($q, $rootScope, $stateParams) {
+    'css!style/bs-pt.css', 'css!style/index.css'
+], function (angular, angularAMD, blockUI) {
+    // routes
+    var registerRoutes = function ($stateProvider, $urlRouterProvider) {
+        var jsResolve = {
+            load: ['$q', '$rootScope', '$stateParams',
+                function ($q, $rootScope, $stateParams) {
 
-                        if ($stateParams.length == 0) {
-                            return null;
-                        }
-                        var path = './views/' + $stateParams.module + "/" + $stateParams.action;
-                        var deferred = $q.defer();
-                        require([path], function () {
-                            $rootScope.$apply(function () {
-                                deferred.resolve();
-                            });
+                    if ($stateParams.length == 0) {
+                        return null;
+                    }
+                    var path = './views/' + $stateParams.module + "/" + $stateParams.action;
+                    var deferred = $q.defer();
+                    require([path], function () {
+                        $rootScope.$apply(function () {
+                            deferred.resolve();
                         });
-                        return deferred.promise;
-                    }]
-            };
-            // default
-            //$urlRouterProvider.otherwise("/tutorials/main");
-
-            // route
-            $stateProvider.state('module', {
-                url: "/{module}/{action}?{params}",
-                templateUrl: function ($scope) {
-                    return 'views/' + $scope.module + '/' + $scope.action + '.html';
-                },
-                resolve: jsResolve
-            });
+                    });
+                    return deferred.promise;
+                }]
         };
-        // module
-        var app = angular.module("indexModule", ["ui.router", 'blockUI', 'ui.bootstrap', 'ngSanitize', 'hls.util']);
+        // default
+        //$urlRouterProvider.otherwise("/tutorials/main");
 
-        // config
-        app.config(["$stateProvider", "$urlRouterProvider", registerRoutes]);
-
-        app.config(function ($httpProvider) {
-            //$httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-            //$httpProvider.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+        // route
+        $stateProvider.state('module', {
+            url: "/{module}/{action}?{params}",
+            templateUrl: function ($scope) {
+                return 'views/' + $scope.module + '/' + $scope.action + '.html';
+            },
+            resolve: jsResolve
         });
+    };
+    // module
+    var app = angular.module("indexModule", ["ui.router", 'blockUI', 'ui.bootstrap', 'ngSanitize', 'hls.util']);
 
-        app.config(function (blockUIConfig) {
-            // Change the default overlay message
-            blockUIConfig.message = "请稍候...";
-            // Change the default delay to 100ms before the blocking is visible
-            blockUIConfig.delay = 100;
-            // Disable automatically blocking of the user interface
-            blockUIConfig.autoBlock = false;
-        });
+    // config
+    app.config(["$stateProvider", "$urlRouterProvider", registerRoutes]);
 
-        app.controller('indexCtrl', ['$scope', '$request', '$ui', function ($scope, $request, $ui) {
+    app.config(function ($httpProvider) {
+        //$httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+        //$httpProvider.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+    });
 
-        }]);
+    app.config(function (blockUIConfig) {
+        // Change the default overlay message
+        blockUIConfig.message = "请稍候...";
+        // Change the default delay to 100ms before the blocking is visible
+        blockUIConfig.delay = 100;
+        // Disable automatically blocking of the user interface
+        blockUIConfig.autoBlock = false;
+    });
+
+    app.controller('indexCtrl', ['$scope', '$request', '$ui', function ($scope, $request, $ui) {
+
+    }]);
 
 // bootstrap
-        return angularAMD.bootstrap(app);
+    return angularAMD.bootstrap(app);
 
-    })
+})
 ;
 
 

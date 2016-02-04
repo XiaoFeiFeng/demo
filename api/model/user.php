@@ -12,7 +12,7 @@ class userModel extends Model
      */
     function __construct()
     {
-        parent::__construct("admin", "mongodb://127.0.0.1:27017");
+        parent::__construct("admin");
     }
 
 }

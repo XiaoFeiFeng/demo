@@ -31,7 +31,7 @@ class merchant extends Controller
         $where = array('state' => $state, 'type' => 'company');
         $condition = getPageLimit();
         $condition['sort'] = array('applyTime' => 1);
-        $result = $this->merchant->lists('merchants', $where, $condition);
+        $result = $this->merchant->find('merchants', $where, $condition);
         echo $this->json->encode($result);
     }
 
@@ -42,7 +42,7 @@ class merchant extends Controller
         $where = array('state' => $state, 'type' => 'personal');
         $condition = getPageLimit();
         $condition['sort'] = array('applyTime' => 1);
-        $result = $this->merchant->lists('merchants', $where, $condition);
+        $result = $this->merchant->find('merchants', $where, $condition);
         echo $this->json->encode($result);
     }
 

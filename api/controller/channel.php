@@ -36,7 +36,7 @@ class channel extends Controller
 
         require('../../public/phpClass/Logistic.class.php');
 
-        $post = json_decode(file_get_contents("php://input"), true);
+        $post = postData();
 
         $channels = array();
 
@@ -68,7 +68,7 @@ class channel extends Controller
     function logistic_category()
     {
         $where = array();
-        $result = $this->channel->lists('logistics_category', $where, getPageLimit());
+        $result = $this->channel->find('logistics_category', $where, getPageLimit());
         echo $this->json->encode($result);
     }
 
@@ -77,7 +77,7 @@ class channel extends Controller
     function logistics_category_channels()
     {
         $where = array("category" => $_GET["category"], 'used' => true);
-        $result = $this->channel->lists('logistics_category_channels', $where, getPageLimit());
+        $result = $this->channel->find('logistics_category_channels', $where, getPageLimit());
         echo $this->json->encode($result);
     }
 

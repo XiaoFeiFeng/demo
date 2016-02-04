@@ -18,6 +18,8 @@
 
 define('CFG_PATH_ROOT', dirname(__FILE__) . '/');
 
+define("CFG_REDIS_PERMISSIONS_KEY", "user_permission_");
+
 require('App.class.php');
 require('Controller.class.php');
 require('Model.class.php');

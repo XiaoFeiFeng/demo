@@ -148,10 +148,51 @@ function getPageLimit()
     return $result;
 }
 
+/**
+ *通过Key删除数组
+ */
+function array_remove($data, $key)
+{
+    if (!array_key_exists($key, $data)) {
+        return $data;
+    }
+    $keys = array_keys($data);
+    $index = array_search($key, $keys);
+    if ($index !== FALSE) {
+        array_splice($data, $index, 1);
+    }
+    return $data;
 
+}
+
+/**
+ *获取Post传递的值 返回格式为对象
+ * 提出tk信息和SessionId
+ */
 function postData()
 {
-    return json_decode(file_get_contents("php://input"), true);
+    $str = file_get_contents("php://input");
+    $data = json_decode(urldecode($str), true);
+    $data = array_remove($data, "tk");
+    $data = array_remove($data, "PHPSESSID");
+    return $data;
+}
+
+/**
+ * 获取Post传递的TK值
+ */
+function getPostTk()
+{
+    $str = file_get_contents("php://input");
+    $data = json_decode(urldecode($str), true);
+    return $data["tk"];
+}
+
+function getPostSessionId()
+{
+    $str = file_get_contents("php://input");
+    $data = json_decode(urldecode($str), true);
+    return $data["PHPSESSID"];
 }
 
 /**

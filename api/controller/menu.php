@@ -21,7 +21,7 @@ class menu extends Controller
 
         $where = array('used' => true);
         $sort = array('sort' => -1);
-        $result = $this->menu->lists('menus', $where, getPageLimit());
+        $result = $this->menu->find('menus', $where, getPageLimit());
         echo $this->json->encode($result);
     }
 

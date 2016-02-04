@@ -1,0 +1,95 @@
+<div class="container" ng-controller="testFileInputCtrl">
+    <div class="col-md-12 pt-padding">
+        <h3><b> 作品发布</b></h3>
+    </div>
+    <div class="col-md-12 text-center">
+        <div class="row">
+            <form action="" enctype="multipart/form-data">
+                <div class="col-md-12">
+                    <input id="fileupload" name="upload[]" type="file" multiple>
+                </div>
+                <p style="padding: 15px">
+                    <small> 文件最大不能超过10M，最多上传12张
+                        <br>
+                        发布时服务器会对图片进行压缩处理，请您尽量压缩后上传
+                        <br>
+                        支持.jpg、.gif、.png格式
+                    </small>
+                </p>
+            </form>
+        </div>
+        <div class="row pt-padding">
+            <form class="form-horizontal" name="articleForm">
+                <div class="form-group">
+                    <label class="control-label col-md-1" for="inputTitle">
+                        <small>标题</small>
+                    </label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control input-lg" ng-model="article.title" id="inputTitle"
+                               required dir-directive-ext requiredmsg="请输入标题">
+                    </div>
+                    <div class="col-md-6 text-left">
+                        请输入标题
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-1" for="inputAddress">
+                        <small>拍摄地点</small>
+                    </label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control input-lg" ng-model="article.address"
+                               id="inputAddress"
+                               required dir-directive-ext requiredmsg="请输入拍摄地信息">
+                    </div>
+                    <div class="col-md-6 text-left">
+                        拍摄地点，尽量详尽，方便摄友交流
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-1" for="inputCamera">
+                        <small>相机</small>
+                    </label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control input-lg" ng-model="article.camera"
+                               id="inputCamera">
+                    </div>
+                    <div class="col-md-6 text-left">
+                        相机品牌、型号
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-1" for="inputlens">
+                        <small>镜头</small>
+                    </label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control input-lg" ng-model="article.lens" id="inputlens">
+                    </div>
+                    <div class="col-md-6 text-left">
+                        输入镜头品牌，型号
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-1" for="inputDesc">
+                        <small>描述</small>
+                    </label>
+                    <div class="col-md-5">
+                    <textarea style="height: 150px; max-height: 200px; max-width: 100%" class="form-control input-lg"
+                              ng-model="article.desc" id="inputDesc"
+                              placeholder="作品描述"></textarea>
+                    </div>
+                    <div class="col-md-6 text-left">
+                        作品简短描述，模特、摄影师、同行等
+                    </div>
+                </div>
+                <div class="form-group text-center">
+                    <button type="button" ng-disabled="articleForm.$invalid" ng-click="publish()"
+                            class="btn btn-primary btn-lg">
+                        <span style="font-size: 30px">&nbsp;发布&nbsp;</span>
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</div>

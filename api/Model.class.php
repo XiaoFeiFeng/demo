@@ -19,12 +19,15 @@ abstract class Model
 {
 
     public $db;
+    public $redis;
 
     function __construct($db = null, $host = null)
     {
-        if (empty($host)) $host = "mongodb://127.0.0.1:27017";
+        if (empty($host)) $host = "mongodb://202.104.151.209:27017";
         if (empty($db)) $db = "admin";
         $this->db = new mongoHelper($db, $host);
+
+        $this->redis = new redisHelper();
     }
 
     /**
@@ -34,7 +37,7 @@ abstract class Model
      * @param $condition   array  附加条件  limit，start，sort
      * @return array
      */
-    function lists($collection, $where, $condition)
+    function find($collection, $where, $condition)
     {
         try {
             $result['data'] = $this->db->find($collection, $where, $condition);
@@ -89,48 +92,11 @@ abstract class Model
         return $result;
     }
 
-    //添加
-    function add($table, $host = null, $db = null)
-    {
-        if (empty($table)) return;
-
-        $db = new mongoHelper($db, $host);
-        $params = getPostData();
-        echoData(array("success" => $db->add($table, $params)));
-    }
-
-
-    //批量删除
-    function removes($table, $host = null, $db = null)
-    {
-        if (empty($table)) return;
-        $db = new mongoHelper($db, $host);
-
-        $ids = array();
-        foreach (getPostData() as $v) {
-            $ids[] = new MongoId($v);
-        }
-        $where = array("_id" => array('$in' => $ids));
-        echoData(array("success" => $db->remove($table, $where)));
-    }
-
-    //编辑
-    function edit($table, $host = null, $db = null)
-    {
-        if (empty($table)) return;
-        $db = new mongoHelper($db, $host);
-
-        $where = array("_id" => new MongoId($_GET["id"]));
-        $data = getPostData();
-        echoData(array("success" => $db->edit($table, $where, $data)));
-    }
-
-
     //查找最后一条数据
-    function findOne($table, $where, $host = null, $db = null)
+    function findOne($table)
     {
         try {
-            $result['data'] = $this->db->findOne($table, $where);
+            $result['data'] = $this->db->findOne($table);
             $result['success'] = true;
         } catch (Exception $e) {
             $result['success'] = false;
@@ -139,20 +105,18 @@ abstract class Model
         return $result;
     }
 
-    //条件查找
-    function find($table, $where = null, $sort = null, $host = null, $db = null)
-    {
-        if (empty($table) || empty($where)) return;
-        $db = new mongoHelper($db, $host);
+    //region Redis
 
-        $index = empty($_GET["pi"]) ? null : $_GET["pi"];
-        $size = empty($_GET["ps"]) ? null : $_GET["ps"];
-        echoData(array(
-            "success" => true,
-            "data" => $db->find($table, $where, $sort, $index, $size),
-            "count" => $db->count($table, $where)
-        ));
+    function redis_set($key, $value, $timeout)
+    {
+        $this->redis->set($key, $value, $timeout);
     }
+
+    function redis_get($key)
+    {
+        return $this->redis->get($key);
+    }
+    //endregion
 
 }
 

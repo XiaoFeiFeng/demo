@@ -22,7 +22,7 @@ class role extends Controller
     {
         $where = array('used' => true);
         $sort = array('sort' => -1);
-        $result = $this->role->lists('roles', $where, getPageLimit());
+        $result = $this->role->find('roles', $where, getPageLimit());
         echo $this->json->encode($result);
     }
 

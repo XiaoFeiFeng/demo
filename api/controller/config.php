@@ -1,7 +1,7 @@
 <?php
 
 /**
- * User: 冯晓飞
+ * User: fengxiaofei
  * Date: 2016/1/25
  * Time: 13:54
  */
@@ -23,5 +23,6 @@ class config extends Controller
         $result = $this->config->findOne("sys_config", $where);
         echo $this->json->encode($result);
     }
+
 //endregion
 }

@@ -1,0 +1,241 @@
+<div class="container" data-ng-controller="articlceIndexCtrl">
+    <div class="row pt-padding">
+        <div class="col-md-2">
+            <img src="images/pic1.png" class="img-rounded pt-u-head">
+        </div>
+        <div class="col-md-3">
+            <div class="row pt-padding-top">
+                <h4 class="pt-none-padding pt-none-margin">冬日环境人像
+                    <small class="disabled">[12张]</small>
+                </h4>
+            </div>
+            <div class="row pt-padding-top">
+                <div style="color: #BBBBBB;padding: 0 5px" class="fa fa-eye disabled">
+                    <small>244422</small>
+                </div>
+                <div style="color: #BBBBBB;padding: 0 5px" class="fa fa-commenting">
+                    <small>212</small>
+                </div>
+                <div style="color: #BBBBBB;padding: 0 5px" class="fa fa-heart">
+                    <small>4</small>
+                </div>
+            </div>
+            <div class="row pt-padding-top">
+                <a href="#">
+                    <small class="fa fa-copyright"> 摄影师小飞&nbsp;</small>
+                </a>
+                <button type="button" class="btn btn-warning btn-sm">
+                    <i class="fa fa-hand-o-up"> </i>
+                    赞他
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="row pt-padding">
+        <div class="col-md-8">
+            <small class="fa fa-camera">&nbsp;佳能 - EOS 5D Mark III</small>
+            <br>
+            <small class="fa fa-bullseye">&nbsp; Canon 35 F1.4L USM</small>
+        </div>
+        <div class="col-md-8 pt-padding">
+            <small>拍摄于： 深圳市 深圳大学</small>
+        </div>
+        <div class="col-md-8">
+            <small>共享许可： 禁止转载</small>
+        </div>
+        <div class="col-md-8 pt-padding">
+            <address>
+                <small>
+                    出乎意料，小小婷竟然约我拍照
+                    定好了周六，结果却下雨了，一路走去大学城，中途被迫停在保安亭里躲雨，约了小米和清水同去，结果小米放了鸽子，说是被雨阻挡出不了门，可能他有别的事情，或者5D3不在手上的原因吧。
+                    就我和清水一起去了，雨后的操场很清静，少了平时的嘈杂。
+                    美女的到来，给宁静的球场增添了一丝活力。
+                    时隔一周再次来到球场，还是不免热血沸腾。
+                    渐渐的操场上的水也蒸发了，雨后的空气很清新，色彩也浓郁，只是拍不出阳光的感觉来，本来想好的逆光，结果却被迫用闪光灯打平光了，好在天气给力，不再下雨了。
+
+                    模特：小小婷
+                    摄影后期：小飞
+                    同行：清水
+                    场地：大学城
+                </small>
+            </address>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="pt-padding-top">
+            <img src="uploads/images/20160204/1.jpg">
+            <br>
+            <div class="text-left">
+                <button type="button" class="btn btn-default">
+                    <i class="fa fa-hand-o-up"></i>
+                    喜欢+3
+                </button>
+            </div>
+        </div>
+        <div class="pt-padding-top">
+            <img src="uploads/images/20160204/2.jpg">
+            <br>
+            <div class="text-left">
+                <button type="button" class="btn btn-default">
+                    <i class="fa fa-hand-o-up"></i>
+                    喜欢+1
+                </button>
+            </div>
+        </div>
+        <div class="pt-padding-top">
+            <img src="uploads/images/20160204/3.jpg">
+            <br>
+            <div class="text-left">
+                <button type="button" class="btn btn-default">
+                    <i class="fa fa-hand-o-up"></i>
+                    喜欢+2
+                </button>
+            </div>
+        </div>
+        <div class="pt-padding-top">
+            <img src="uploads/images/20160204/4.jpg">
+            <br>
+            <div class="text-left">
+                <button type="button" class="btn btn-default">
+                    <i class="fa fa-hand-o-up"></i>
+                    喜欢
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 pt-padding">
+        <div class="pt-padding">
+            <h4><b> 关于摄影师</b></h4>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-2 pt-margin">
+                <img src="images/pic1.png" class="img-rounded pt-u-head-md">
+            </div>
+            <div class="col-md-2 text-left pt-margin">
+                <h4>摄影师小飞
+                </h4>
+                <div style="color: #BBBBBB;padding: 0 5px">
+                    <small> 作品：23</small>
+                </div>
+                <div style="color: #BBBBBB;padding: 0 5px">
+                    <small>被浏览：244422</small>
+                </div>
+                <div style="color: #BBBBBB;padding: 0 5px">
+                    <small>被喜欢：212</small>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-2 pt-img-scale" style="padding: 5px" ng-repeat="img in imageList track by $index">
+                    <div>
+                        <a href="#"> <img ng-src="{{img}}" class="img-responsive" alt=""/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="row pt-padding">
+            <div class="col-md-2">
+                <h4><b> 评论作品</b></h4>
+            </div>
+            <div class="col-md-9">
+                <h4>冬日人像
+                    <small>(4条)</small>
+                </h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1">
+                <img src="images/pic1.png" class="img-rounded pt-u-head-sm">
+            </div>
+            <div class="col-md-6">
+                <textarea class="form-control" style="height: 150px; max-height: 150px; max-width: 100%"></textarea>
+                <div class="text-right pt-padding">
+                    <button type="button" class="btn btn-primary">
+                        发表
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row pt-padding">
+            <hr>
+            <div class="col-md-1">
+                <img src="images/pic2.png" class="img-rounded pt-u-head-sm">
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-6">
+                        <small><a href="#">摄影师小四</a></small>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <small>2016-02-04 17:32:12</small>
+                    </div>
+                </div>
+                <div class="row pt-padding-top">
+                    <address>
+
+                        <small>
+                            不错，佳作，值得推荐
+                        </small>
+                    </address>
+                </div>
+            </div>
+        </div>
+        <div class="row pt-padding">
+            <hr>
+            <div class="col-md-1">
+                <img src="images/pic3.png" class="img-rounded pt-u-head-sm">
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-6">
+                        <small><a href="#">摄影师小四</a></small>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <small>2016-02-04 17:32:12</small>
+                    </div>
+                </div>
+                <div class="row pt-padding-top">
+                    <address>
+                        <small>
+                            不错，佳作，值得推荐
+                        </small>
+                    </address>
+                </div>
+            </div>
+        </div>
+        <div class="row pt-padding">
+            <hr>
+            <div class="col-md-1">
+                <img src="images/pic1.png" class="img-rounded pt-u-head-sm">
+            </div>
+            <div class="col-md-6">
+                <div class="row ">
+                    <div class="col-md-6">
+                        <small><a href="#">摄影师小四</a></small>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <small>2016-02-04 17:32:12</small>
+                    </div>
+                </div>
+                <div class="row pt-padding-top">
+                    <address>
+                        <small>
+                            不错，佳作，值得推荐
+                        </small>
+                    </address>
+                </div>
+            </div>
+        </div>
+
+
+        <div style="padding-top: 100px">
+            &nbsp;
+        </div>
+    </div>
+</div>

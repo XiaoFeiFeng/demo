@@ -2,8 +2,20 @@
     padding: 15px 0 !important;
 }
 
-.pt-botton {
-    margin: 15px;
+.pt-padding {
+    padding: 15px 15px !important;
+}
+
+.pt-margin {
+    margin: 15px !important;
+}
+
+.pt-none-padding {
+    padding: 0 !important;
+}
+
+.pt-none-margin {
+    margin: 0 !important;
 }
 
 .pt-copyright {
@@ -50,4 +62,19 @@
     -moz-transform: scale(1.2);
     -o-transform: scale(1.2);
     -ms-transform: scale(1.2);
+}
+
+.pt-u-head {
+    width: 150px;
+    height: 150px;
+}
+
+.pt-u-head-md {
+    width: 100px;
+    height: 100px;
+}
+
+.pt-u-head-sm {
+    width: 60px;
+    height: 60px;
 }

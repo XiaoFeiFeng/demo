@@ -1,0 +1,17 @@
+<div class="box" style="border:0px;" ng-controller="permissionUserCtrl">
+    <div class="box-header">
+        <button class="btn btn-primary" ng-click="add()"><i class="fa fa-user-plus"></i>
+            <span>添加</span>
+        </button>
+        <button class="btn btn-warning" ng-click="batchDel()"><i class="fa fa-trash-o"></i>
+            <span>批量删除</span>
+        </button>
+    </div>
+    <div class="box-body">
+        <hls-grid grid-options="gridOptions"></hls-grid>
+    </div>
+    <div class="box-footer">
+        <hls-pagination total-items="totalItems" ng-model="currentPage" class="pagination-sm"
+                        page-size="pageSize" ng-change="pageChange()"></hls-pagination>
+    </div>
+</div>

@@ -7,7 +7,7 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorizatio
 header('Access-Control-Allow-Credentials: true');
 //session_start();
 //新建画布
-$i = imagecreatetruecolor(130, 46);
+$i = imagecreatetruecolor(100, 46);
 //分配颜色
 $color = imagecolorallocate($i, 255, 255, 255);
 //填充颜色
@@ -42,7 +42,7 @@ $arr = array_merge(range('a', 'z'), range('A', 'Z'), range(1, 9));
 //把数组的值转化成字符串 	用'' 分割
 $str = join('', $arr);
 //打乱字符串  	截取4位字符串
-$strsix = substr(str_shuffle($str), 0, 5);
+$strsix = substr(str_shuffle($str), 0, 4);
 
 //把验证码放到session
 
@@ -60,7 +60,7 @@ for ($j = 0; $j < strlen($strsix); $j++) {
     $x = 10 + $j * 20;
     $y = 30;
     //写到图片上
-    imagefttext($i, 20, $angle, $x, $y, $color, '../../../public/files/heiti.ttf', $char);
+    imagefttext($i, 20, $angle, $x, $y, $color, 't1.ttf', $char);
 }
 
 //$img = imagepng($i);
@@ -83,6 +83,7 @@ function bin2string($str, $format, $length)
     return $arr;
 }
 
+header('Content-type: image/jpg');
 //调用
 imagepng($i);
 

@@ -36,17 +36,33 @@ abstract class Controller extends App
      */
     function _noAction()
     {
-        throw new Exception('你访问了未定义的页面');
+        $this->outError('你访问了未定义的页面');
     }
 
+    /**
+     * 输出结果
+     */
+    function outData($data)
+    {
+        echo $this->json->encode($data);
+    }
 
     /**
-     * 权限检测
-     * @param $authz 权限代码
+     * 输出成功结果
      */
-    function actionPrivilege($authz)
+    function outSuccessData($data)
     {
-        if (!check_authz($authz)) Page::todo('index.php?model=alert', '您没有此操作的权限，请联系系统管理员');
+        $result = array("success" => true, "data" => $data);
+        echo $this->json->encode($result);
+    }
+
+    /**
+     * 输出错误
+     */
+    function outError($msg)
+    {
+        $result = array("success" => false, "error" => $msg);
+        echo $this->json->encode($result);
     }
 
     /**

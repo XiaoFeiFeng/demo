@@ -13,7 +13,7 @@ class logisticModel extends Model
      */
     function __construct()
     {
-        parent::__construct("logistic", "mongodb://127.0.0.1:27017"); //定义数据库
+        parent::__construct("logistic"); //定义数据库
     }
 
 }

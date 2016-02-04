@@ -35,12 +35,29 @@ class App
         $cotrollerName = $_GET['model'];
         $file = 'controller/' . $cotrollerName . '.php';
         $modelFile = 'model/' . $cotrollerName . '.php';
+
         if (is_file($file)) {
             include($file);
             include($modelFile);
             $cotroller = new $cotrollerName();
             $actionName = $_REQUEST['action'];
+
             if (method_exists($cotroller, $actionName)) {
+
+                //数据验证 防止网络篡改
+                $data = postData();
+
+                if (!$this->ValidData($data)) {
+                    $cotroller->outError("数据验证失败，请重新尝试！");
+                    exit;
+                }
+                //客户端如果保存SessionId 重新初始化Session
+                $sessionId = getPostSessionId();
+                if (isset($sessionId) && !is_null($sessionId)) {
+                    session_id($sessionId);
+                    session_start();
+                }
+
                 $cotroller->{$actionName}();
             } else if (method_exists($cotroller, '_noAction')) {
                 $cotroller->_noAction();
@@ -50,6 +67,40 @@ class App
         } else {
             throw new Exception('no cotroller');
         }
+    }
+
+    function ValidData($data)
+    {
+        if (empty($data)) return true;
+
+        $arr = $this->joinData($data);
+        sort($arr);
+
+        $str = implode("", $arr);
+        $str = strtr($str, array(' ' => ''));
+        $str = strtolower($str);
+        $tk = getPostTk();
+        return md5($str) == $tk;
+    }
+
+    function joinData($data)
+    {
+        if (empty($data) || is_null($data) || !is_array($data)) return false;
+
+        $arr = array();
+
+        foreach ($data as $key => $value) {
+            if (is_bool($value)) {
+                $arr[] = $value . "";
+            } else if (!is_array($value)) {
+                $arr[] = $value;
+            } else {
+                $join = $this->joinData($value);
+                array_merge($arr, $join);
+            }
+        }
+
+        return $arr;
     }
 
     /**
